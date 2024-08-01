@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        body{
+            background-color: black;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100lvh;
+        }
+        .box{ 
+            border: 1px solid black;           
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            animation: box-animation 2s infinite;
+        }
+        .bar{            
+            height: 10px;
+            width: 230px;
+            position: absolute;
+            background-color: rgb(189, 185, 185);
+            border-radius: 10px;
+            transform: translateY(240px);
+            animation: bar-animation 2s infinite;
+        }
+        @keyframes box-animation {
+            0%{
+                transform: rotate(0deg);
+            }
+            50%{
+                transform:  translateY(180px) rotate(45deg);
+                border-radius: 0px 0px 40px 0px
+            }
+            100%{
+                transform:  translateY(0px) rotate(90deg);
+            }
+        }
+        @keyframes bar-animation {
+            30%{
+                width: 230px;
+            }
+            45%{
+                width: 150px;
+            }
+            70%{
+                width: 230px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="bar"></div>
+    </div>
+</body>
+</html>

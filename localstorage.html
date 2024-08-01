@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="setname();">Reset Name</button>
+    <div class="container">
+        <p>Welcome to my page</p>
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", ()=>{
+        var nm = localStorage.getItem('user');
+        document.querySelector(".container").innerHTML = `Welcome ${nm}`;
+        if (nm != null) {
+            function run() {
+                let name = document.getElementById("name").value;
+                console.log(name)
+            }
+        } else { setname() }
+        alert("Welcome " + nm);
+    })
+
+    function setname() {
+        let name = prompt("Enter your name:");
+        localStorage.setItem('user', name)        
+        alert("Welcome " + name);
+        document.querySelector(".container").innerHTML = `Welcome ${name}`;        
+    }
+</script>
+
+</html>
+
+<!-- 
+
+    let fun = function(){
+        console.log("hello");
+    }
+    fun();
+    let fun2 = (a)=>{        
+        console.log("This is an arrow fucntion");
+        a == 1? console.log("hello") : console.log("FUck off")
+    }
+    fun2();
+
+ano. function
+arrow function it can also use in the single line
+in arrow function we cannot use {this} property
+
+
+stoppropergation is used
+
+
+
+this all are use to store our data
+session, cookies, database
+
+csv couma seprated value
+-->

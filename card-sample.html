@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;            
+            background-color: #f4d04e;
+            font-family: Bahnschrift;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100lvh;
+        }
+        .card{
+            width: 384px;
+            border: 1px solid;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 5px 5px ;
+        }
+        .img{
+            display: flex;
+            align-items: center;
+            justify-self: center;
+            border-radius: 10px;
+            background-color: white;
+            margin: 20px;
+        }
+        img{
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
+        }
+        .all-content{
+            background-color: white;
+            margin: 20px;
+        }
+        .content:nth-child(1){
+            border-radius: 5px;
+            display: inline-block;
+            padding: 5px 10px;
+            font-weight:bolder;
+            margin-bottom: 10px;
+        }
+        .content:nth-child(2){
+            background-color: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .content:nth-child(3){
+            background-color: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-weight: bolder;
+            font-size: larger;
+        }
+        .content:nth-child(4){
+            background-color: white;
+            color: rgb(87, 89, 91);
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .personal{
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            gap: 10px;
+        }
+        .personal>*{
+            background-color: white;
+        }
+        .personal>.dp{
+            height: 30px;
+            width: 30px;
+            border-radius: 30px;
+            background-color: black;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="img"><img src="Blog Image.png" alt=""></div>
+            <div class="all-content">
+                <div class="content">Learning</div>
+                <div class="content">Published 21 Dec 2023</div>
+                <div class="content">HTML & CSS foundations</div>
+                <div class="content">These languages are the backbone of every website, defining structure, content, and presentation.</div>
+            </div>
+            <div class="personal">
+                <div class="dp"></div>
+                <div class="name">Greg Hooper</div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+<!-- html injection
+javascript injection -->
