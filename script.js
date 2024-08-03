@@ -47,3 +47,7 @@ let promise = new Promise(function (resolve, reject) {
         resolve(date.toLocaleTimeString());
     }, 2000)
 })
+
+array.forEach(element => {
+    
+});

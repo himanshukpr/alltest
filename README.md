@@ -45,3 +45,15 @@ fun1("uj");
 Promises
 these are the adbance version of error handling
 either resolve or reject
+
+
+asynchronous programming
+this means to able to do multi task at a single time
+javascript promises are used to handle multiply asyn tasks.
+
+API
+it is use to extend the functinality of our programm
+API is the acronym for application programming interface — a software intermediary that allows two applications to talk to each other. APIs are an accessible.
+
+polyfill 
+it means adding a feature to our desktop apps online..

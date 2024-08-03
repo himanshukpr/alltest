@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+
+<body>
+    <input type="text" id="key" placeholder="Enter any word" onchange="chvalue();">
+    <h1 id="heading"></h1>
+    <p id="value"></p>
+</body>
+<script>
+    let key;
+    let a = document.getElementById("value");
+    let heading = document.getElementById("heading");
+
+    function chvalue() {
+        a.innerHTML = null;
+        key = document.getElementById("key").value;     
+        try {
+            fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${key}`)
+                .then(Response => {
+                    if (Response.ok) {
+                        return Response.json();
+                    } else {
+                        a.innerHTML = "<b>Word does not exist!</b>";
+                        throw new Error("API no called");
+                    }
+                })
+                .then(data => {
+                    let i = 1;
+                    let b = data[0].meanings[0].definitions;
+                    heading.innerHTML = `Meaning of '${key}'`;
+                    b.forEach(element => {
+                        a.innerHTML += `${i++}. ${element.definition}<br>`;
+                    });
+                })
+        }
+        catch {
+            console.log("word is not right");
+        }
+
+    }
+</script>
+
+</html>
