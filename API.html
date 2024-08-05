@@ -5,44 +5,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            background-color: antiquewhite
+        }
+        .container{
+            background-color: white;
+            border-radius: 10px;
+            width: 80%;
+            margin: auto;
+            position: relative;
+            padding: 20px;
+        }
+        .container>input[type=text]{
+            width: 50%;
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid rgb(117, 116, 116);
+            border-left: none;
+            border-top: none;
+            border-right: none;
+            outline: none;
+        }
+        .container>input[type=button]{
+            position: absolute;
+            right: 10px;
+            top: 15px;
+            padding: 5px;
+            background-color: transparent;
+            background-color: none;
+            border: 1px solid ;
+            border-radius: 5px;
+        }
+        .container>ul{
+            width: 90%;
+            margin: auto;
+        }
+        h1{
+            margin: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <input type="text" id="key" placeholder="Enter any word" onchange="chvalue();">
-    <h1 id="heading"></h1>
-    <p id="value"></p>
+    <div class="container">
+        <input type="text" id="key" placeholder="Enter any word" onchange="chvalue();">
+        <input type="button" onclick="playsound();" value="Play sound" id="sound">
+        <h1 id="heading"></h1>
+        <h3>Definitions:</h3>
+        <ul id="value">--</ul>
+    </div>
+
 </body>
 <script>
     let key;
-    let a = document.getElementById("value");
+    let definition = document.getElementById("value");
     let heading = document.getElementById("heading");
+    let soundbtn = document.getElementById("sound");
+    let sound;
 
     function chvalue() {
-        a.innerHTML = null;
-        key = document.getElementById("key").value;     
+        definition.innerHTML = null;
+        key = document.getElementById("key").value;
         try {
             fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${key}`)
                 .then(Response => {
                     if (Response.ok) {
                         return Response.json();
                     } else {
-                        a.innerHTML = "<b>Word does not exist!</b>";
+                        definition.innerHTML = "<b>Word does not exist!</b>";
                         throw new Error("API no called");
                     }
                 })
                 .then(data => {
                     let i = 1;
                     let b = data[0].meanings[0].definitions;
-                    heading.innerHTML = `Meaning of '${key}'`;
+                    let sound_words;
+
+                    if (data[0].phonetics[0].text) {
+                        sound_words = data[0].phonetics[0].text;
+                    } else {
+                        sound_words = data[0].phonetics[1].text;
+                    }
+                    console.log(data[0]);
+                    sound = new Audio(data[0].phonetics[0].audio);
+                    heading.innerHTML = `Meaning of '${key}' <sub>${sound_words}</sub>`;
                     b.forEach(element => {
-                        a.innerHTML += `${i++}. ${element.definition}<br>`;
+                        definition.innerHTML += `<li> ${element.definition}</li>`;
                     });
                 })
         }
         catch {
             console.log("word is not right");
         }
-
+    }
+    function playsound() {
+        sound.play();
     }
 </script>
 
