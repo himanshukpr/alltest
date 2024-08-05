@@ -96,12 +96,16 @@
                     } else {
                         sound_words = data[0].phonetics[1].text;
                     }
+                    
                     console.log(data[0]);
                     sound = new Audio(data[0].phonetics[0].audio);
                     heading.innerHTML = `Meaning of '${key}' <sub>${sound_words}</sub>`;
                     b.forEach(element => {
                         definition.innerHTML += `<li> ${element.definition}</li>`;
                     });
+
+
+                    
                 })
         }
         catch {
