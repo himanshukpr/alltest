@@ -91,6 +91,10 @@
                     let b = data[0].meanings[0].definitions;
                     let sound_words;
 
+                    b.forEach(element => {
+                        definition.innerHTML += `<li> ${element.definition}</li>`;
+                    });
+
                     if (data[0].phonetics[0].text) {
                         sound_words = data[0].phonetics[0].text;
                     } else {
@@ -100,12 +104,8 @@
                     console.log(data[0]);
                     sound = new Audio(data[0].phonetics[0].audio);
                     heading.innerHTML = `Meaning of '${key}' <sub>${sound_words}</sub>`;
-                    b.forEach(element => {
-                        definition.innerHTML += `<li> ${element.definition}</li>`;
-                    });
-
-
                     
+
                 })
         }
         catch {
