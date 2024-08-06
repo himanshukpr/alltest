@@ -105,8 +105,13 @@
                     sound_words = data[0].phonetics[1].text;
                 }
 
-                console.log(data[0]);
-                sound = new Audio(data[0].phonetics[0].audio);
+                if (data[0].phonetics[0].audio) {
+                    sound = new Audio(data[0].phonetics[0].audio);
+                } else {
+                    sound = new Audio(data[0].phonetics[1].audio);
+                }
+
+                console.log(data);
                 heading.innerHTML = `Meaning of '${key}' <sub>${sound_words}</sub>`;
 
             })
