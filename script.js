@@ -41,13 +41,40 @@
 
 ///////////// promise
 
-let promise = new Promise(function (resolve, reject) {
-    setTimeout(() => {
-        let date = new Date();
-        resolve(date.toLocaleTimeString());
-    }, 2000)
-})
+// let promise = new Promise(function (resolve, reject) {
+//     setTimeout(() => {
+//         let date = new Date();
+//         resolve(date.toLocaleTimeString());
+//     }, 2000)
+// })
 
-array.forEach(element => {
-    
-});
+// let arr = [1,4,5,2,6,2]
+// console.log(arr.sort())
+// let newarr = arr.map((e)=>{
+//     return e*2;
+// })
+
+// console.log(newarr)
+
+// it is use to filter some specific value of the array
+let arr = [
+    {
+        name:"abc",
+        age:20,
+    },
+    {
+        name:"def",
+        age:21,
+    },
+    {
+        name:"ccc",
+        age:20,
+    }
+];
+
+let res = arr.filter((obj)=>{
+    if(obj.age == 20){
+        return obj;
+    }
+})
+console.log(res);

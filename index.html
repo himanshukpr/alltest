@@ -4,21 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API</title>
+    <title>Word meaning (API)</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
-        body{
+
+        body {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 50px;
             background-color: antiquewhite
         }
-        .container{
+
+        .container {
             background-color: white;
             border-radius: 10px;
             width: 80%;
@@ -26,7 +28,8 @@
             position: relative;
             padding: 20px;
         }
-        .container>input[type=text]{
+
+        .container>input[type=text] {
             width: 50%;
             padding: 5px;
             margin: 5px;
@@ -36,21 +39,24 @@
             border-right: none;
             outline: none;
         }
-        .container>input[type=button]{
+
+        .container>input[type=button] {
             position: absolute;
             right: 10px;
             top: 15px;
             padding: 5px;
             background-color: transparent;
             background-color: none;
-            border: 1px solid ;
+            border: 1px solid;
             border-radius: 5px;
         }
-        .container>ul{
+
+        .container>ul {
             width: 90%;
             margin: auto;
         }
-        h1{
+
+        h1 {
             margin: 20px;
         }
     </style>
@@ -76,41 +82,38 @@
     function chvalue() {
         definition.innerHTML = null;
         key = document.getElementById("key").value;
-        try {
-            fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${key}`)
-                .then(Response => {
-                    if (Response.ok) {
-                        return Response.json();
-                    } else {
-                        definition.innerHTML = "<b>Word does not exist!</b>";
-                        throw new Error("API no called");
-                    }
-                })
-                .then(data => {
-                    let i = 1;
-                    let b = data[0].meanings[0].definitions;
-                    let sound_words;
 
-                    b.forEach(element => {
-                        definition.innerHTML += `<li> ${element.definition}</li>`;
-                    });
+        fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${key}`)
+            .then(Response => {
+                if (Response.ok) {
+                    return Response.json();
+                } else {
+                    definition.innerHTML = "<b>Word does not exist!</b>";
+                    throw new Error("API no called");
+                }
+            })
+            .then(data => {
+                let b = data[0].meanings[0].definitions;
+                let sound_words;
+                b.forEach(element => {
+                    definition.innerHTML += `<li> ${element.definition}</li>`;
+                });
 
-                    if (data[0].phonetics[0].text) {
-                        sound_words = data[0].phonetics[0].text;
-                    } else {
-                        sound_words = data[0].phonetics[1].text;
-                    }
-                    
-                    console.log(data[0]);
-                    sound = new Audio(data[0].phonetics[0].audio);
-                    heading.innerHTML = `Meaning of '${key}' <sub>${sound_words}</sub>`;
-                    
+                if (data[0].phonetics[0].text) {
+                    sound_words = data[0].phonetics[0].text;
+                } else {
+                    sound_words = data[0].phonetics[1].text;
+                }
 
-                })
-        }
-        catch {
-            console.log("word is not right");
-        }
+                console.log(data[0]);
+                sound = new Audio(data[0].phonetics[0].audio);
+                heading.innerHTML = `Meaning of '${key}' <sub>${sound_words}</sub>`;
+
+            })
+            .catch(() => {
+                console.log("word is not right")
+            })
+
     }
     function playsound() {
         sound.play();

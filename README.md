@@ -57,3 +57,12 @@ API is the acronym for application programming interface — a software intermed
 
 polyfill 
 it means adding a feature to our desktop apps online..
+
+we use promises to avoid callback hell
+
+
+filter
+filter is used to perform a specific task on a value of the array and return the value.
+
+destructing of array/JSON
+how to read the json from 

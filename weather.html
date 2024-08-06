@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+</head>
+
+<body>
+    <input type="text" id="location" onchange="change_location();" placeholder="Location">
+    <div class="wether-data-container">
+    </div>
+</body>
+<script>
+    let url = "https://open-weather13.p.rapidapi.com/city/ludhiana/EN";
+    function change_location() {
+        let location = document.getElementById("location").value;
+        fetch(`https://open-weather13.p.rapidapi.com/city/${location}/EN`,
+            {
+                method: 'GET',
+                headers: {
+                    'x-rapidapi-key': 'd281e078a9msh1aaf64531ba1fc3p1d5dd3jsn5ac82e81edef',
+                    'x-rapidapi-host': 'open-weather13.p.rapidapi.com'
+                }
+            }).then((Response) => {
+                if (Response.ok) {
+                    return Response.json();
+                } else {
+                    throw new Error("API not called");
+                }
+            }).then((data) => {
+                let temp = Math.floor(parseFloat(data.main.temp));
+                let weather_data = `
+                <p>Temperature ${(temp - 32) * 5 / 9}</p>
+                <p>Feels like ${(data.main.feels_like- 32) * 5 / 9}</p>
+                <p>Humidity</p>
+                <p>Pressure</p>
+                `
+                document.querySelector(".wether-data-container").innerHTML = weather_data;
+                console.log(data.main.feels_like);
+                console.log((temp - 32) * 5 / 9);
+            }).catch((Error) => {
+                console.log()
+            })
+    }
+
+
+
+</script>
+
+</html>
