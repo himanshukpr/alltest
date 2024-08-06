@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fethe</title>
+</head>
+<body>
+    
+</body>
+<script>
+    fetch('https://jsonplaceholder.typicode.com/posts') // use to call the data
+    .then((Response)=>{ // this all step is use to check and return the data or error
+        if(Response.ok){
+            return Response.json();
+        }else{
+            throw new Error("API not called");
+        }
+    })
+    .then((data)=>{ // this block is for print the data
+        console.log(data[1]);
+    })
+    .catch(()=>{
+        console.log("Get out")
+    })
+</script>
+</html>

@@ -40,8 +40,8 @@
                 document.querySelector(".wether-data-container").innerHTML = weather_data;
                 console.log(data.main.feels_like);
                 console.log((temp - 32) * 5 / 9);
-            }).catch((Error) => {
-                console.log()
+            }).catch(() => {
+                console.log("no")
             })
     }
 

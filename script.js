@@ -57,24 +57,31 @@
 // console.log(newarr)
 
 // it is use to filter some specific value of the array
-let arr = [
-    {
-        name:"abc",
-        age:20,
-    },
-    {
-        name:"def",
-        age:21,
-    },
-    {
-        name:"ccc",
-        age:20,
-    }
-];
+// let arr = [
+//     {
+//         name:"abc",
+//         age:20,
+//     },
+//     {
+//         name:"def",
+//         age:21,
+//     },
+//     {
+//         name:"ccc",
+//         age:20,
+//     }
+// ];
 
-let res = arr.filter((obj)=>{
-    if(obj.age == 20){
-        return obj;
-    }
-})
-console.log(res);
+// let res = arr.filter((obj)=>{
+//     if(obj.age == 20){
+//         return obj;
+//     }
+// })
+// console.log(res);
+
+async function main() {
+    const res = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/misadf');
+    const data = await res.json();
+    console.log(data);
+}
+main();

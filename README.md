@@ -66,3 +66,10 @@ filter is used to perform a specific task on a value of the array and return the
 
 destructing of array/JSON
 how to read the json from 
+
+async await
+it makes the pomises easier to write
+async
+it return pomises
+await
+it wait for the result of the pomise
