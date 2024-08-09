@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    let btn = document.createElement("button")
+    btn.innerHTML = "click me";
+    btn.setAttribute("id","this is id");
+    btn.addEventListener("click",ebtn)
+    document.querySelector(".box").append(btn); 
+    function ebtn(){
+        console.log("done")
+    }
+</script>
+</html>

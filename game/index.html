@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: grey;
+            height: 100vh;
+        }
+        .boxs{
+            background-color: black;
+            border: 1px solid; 
+            width: 80px;
+            height: 80px;
+            margin: 1px;
+            border-radius: 5px;
+            
+        }
+        .board{
+            display: grid;
+            grid-template-columns: repeat(5, 2fr);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" data-id="3">
+        <div class="game-area">
+            <div class="board"></div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

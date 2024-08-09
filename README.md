@@ -73,3 +73,28 @@ async
 it return pomises
 await
 it wait for the result of the pomise
+
+
+
+------------------------------------------------------------------------------------
+mobile apps
+java is use for androis apps
+swift is use for ios apps
+
+Types of mobile apps
+hybrid apps - write the code ones and can use anywhere (on any device)
+native apps  -  can only use on that device ond device
+
+Apache cordova for hybrid apps
+(phonecap)
+
+these helps to convert our code
+sdk - (standerd develepment kit)
+jdk - (java develepment kit)
+android studio
+nodejs
+------------------------------------------------------------------------------------
+
+
+to get the API of the mutual funds website name is 'mfapi'
+rapid api

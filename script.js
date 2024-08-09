@@ -79,9 +79,17 @@
 // })
 // console.log(res);
 
-async function main() {
-    const res = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/misadf');
-    const data = await res.json();
-    console.log(data);
-}
-main();
+
+fetch('https://api.dictionaryapi.dev/api/v2/entries/en/term')
+.then(Response=>Response.json())
+.then(data => console.log(data))
+.catch(Error => console.error(Error));
+
+
+// async function main() {
+//     const res = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/term');
+//     const data = await res.json();
+//     console.log(data);
+// }
+// main();
+
