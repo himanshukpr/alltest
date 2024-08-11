@@ -1,29 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .container{
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .card{
+      display: flex;
+      padding: 10px;
+      background-color: rgb(227, 227, 231);
+      border-radius: 10px;
+      height: 200px;
+      width: 200px;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+    .card>*{
+      margin: 10px;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="container">
+    <div class="card">
+      <h2>SBI contra fund</h2>
+      <p>Date - <span id="date"></span></p>
+      <p>Nav - <span id="nav"></span></p>
+    </div>
+    <div class="card">
+      <h2>Aditya biral sun life</h2>
+      <p>Date - <span id="date1"></span></p>
+      <p>Nav - <span id="nav1"></span></p>
+    </div>
+    <div class="card">
+      <h2>Parag parikh</h2>
+      <p>Date - <span id="date2"></span></p>
+      <p>Nav - <span id="nav2"></span></p>
+    </div>
+  </div>
 
-
-    mfapi website
-
-    <!-- sbi contra fund
+  <!-- sbi contra fund
     aditya biral sun life
     parag parikh -->
-    
+
 </body>
 <script>
-    const URL = "https://api.mfapi.in/mf/119835";
-    async function data(){
-        const resp = await fetch(URL);
-        const data = await resp.json();
-        console.log(data);
-    }
-    data();
+  const URL = ["https://api.mfapi.in/mf/119835", "https://api.mfapi.in/mf/129490", "https://api.mfapi.in/mf/143264"];
+
+  function apicall(url, date, nav) {
+    fetch(url)
+      .then((Response) => {
+        if (Response.ok) {
+          return Response.json();
+        }
+        else {
+          throw new Error("API not called");
+        }
+      })
+      .then((data) => {
+        console.log(data.data[0].date);
+        document.getElementById(date).textContent = data.data[0].date;
+        document.getElementById(nav).textContent = data.data[0].nav;
+      })
+  }
+  apicall(URL[0],"date","nav");
+  apicall(URL[1],"date1","nav1");
+  apicall(URL[2],"date2","nav2");
+
 </script>
+
 </html>
 
 <!-- <!DOCTYPE html>

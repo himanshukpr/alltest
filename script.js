@@ -93,3 +93,6 @@ fetch('https://api.dictionaryapi.dev/api/v2/entries/en/term')
 // }
 // main();
 
+array.forEach(element => {
+    
+});
