@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mines()
     hscore = document.getElementById("h_score");
     hscore.innerHTML = localStorage.getItem("score");
-    // board.style.gridTemplateColumns = `repeat(${size}, 2fr);`;
+    board.style.gridTemplateColumns = `repeat(${size},2fr)` ;
 })
 
 const cells = [];
