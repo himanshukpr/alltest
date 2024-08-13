@@ -101,3 +101,7 @@ rapid api
 
 
 
+Dribbble
+Figma
+aurth0 for login
+https://auth0.com/
