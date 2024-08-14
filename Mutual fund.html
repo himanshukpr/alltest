@@ -62,7 +62,7 @@
 
 </body>
 <script>
-  const URL = ["https://api.mfapi.in/mf/119835", "https://api.mfapi.in/mf/129490", "https://api.mfapi.in/mf/143264"];
+  const URL = ["https://api.mfapi.in/mf/119835", "https://api.mfapi.in/mf/129490", "https://api.mfapi.in/mf/143264", "https://docs.google.com/spreadsheets/d/1WDAAc_aZnh63yOL2aexP6g0pGNTm2hQe6-kEpJtS5wo/edit?gid=0#gid=0"];
 
   function apicall(url, date, nav) {
     fetch(url)
@@ -75,7 +75,7 @@
         }
       })
       .then((data) => {
-        console.log(data.data[0].date);
+        console.log(data);
         document.getElementById(date).textContent = data.data[0].date;
         document.getElementById(nav).textContent = data.data[0].nav;
       })
@@ -83,6 +83,7 @@
   apicall(URL[0],"date","nav");
   apicall(URL[1],"date1","nav1");
   apicall(URL[2],"date2","nav2");
+  apicall(URL[3],"date2","nav2");
 
 </script>
 
