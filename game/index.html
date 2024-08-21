@@ -27,13 +27,22 @@
         .board{
             display: grid;
             overflow: hidden;
+            gap: none;
+        }
+        ul{
+            display: flex;
+            gap: 255px;
+            list-style: none;
         }
     </style>
 </head>
 <body>
     <div class="container" data-id="3">
         <div class="game-area">
-            <p>Score - <span id="score">0</span></p> <p>High score - <span id="h_score"></span></p>
+            <ul>
+                <li>Score - <span id="score">0</span></li>
+                <li>High score - <span id="h_score">0</span></li>
+            </ul>
             <div class="board"></div>
         </div>
     </div>

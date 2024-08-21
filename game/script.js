@@ -33,7 +33,7 @@ function ebtn() {
         let temp = this.getAttribute("mine")
         if (temp == "true") {
 
-            this.style.background = "red"
+            this.style.background = "red";
             window.location.reload(true);
             return alert("marr gya tu");
         }
